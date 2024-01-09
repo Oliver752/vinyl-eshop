@@ -1,0 +1,94 @@
+[
+    {
+      "id": "1",
+      "name": "Abbey Road",
+      "author": "The Beatles",
+      "year": "1969",
+      "description": "Abbey Road is the eleventh studio album by the English rock band the Beatles.",
+      "genre": "Rock",
+      "image": "abbey-road.jpg",
+      "price": "22,50"
+    },
+    {
+      "id": "2",
+      "name": "Thriller",
+      "author": "Michael Jackson",
+      "year": "1982",
+      "description": "Thriller is the sixth studio album by American singer Michael Jackson.",
+      "genre": "Pop",
+      "image": "thriller.jpg",
+      "price": "25,99"
+    },
+    {
+      "id": "3",
+      "name": "Thriller",
+      "author": "Michael Jackson",
+      "year": "1982",
+      "description": "Thriller is the sixth studio album by American singer Michael Jackson.",
+      "genre": "Pop",
+      "image": "thriller.jpg",
+      "price": "25,99"
+    },
+    {
+      "id": "4",
+      "name": "Thriller",
+      "author": "Michael Jackson",
+      "year": "1982",
+      "description": "Thriller is the sixth studio album by American singer Michael Jackson.",
+      "genre": "Pop",
+      "image": "thriller.jpg",
+      "price": "25,99"
+    },
+    {
+      "id": "5",
+      "name": "Thriller",
+      "author": "Michael Jackson",
+      "year": "1982",
+      "description": "Thriller is the sixth studio album by American singer Michael Jackson.",
+      "genre": "Pop",
+      "image": "thriller.jpg",
+      "price": "25,99"
+    },
+    {
+      "id": "6",
+      "name": "Thriller",
+      "author": "Michael Jackson",
+      "year": "1982",
+      "description": "Thriller is the sixth studio album by American singer Michael Jackson.",
+      "genre": "Pop",
+      "image": "thriller.jpg",
+      "price": "25,99"
+    },
+    {
+      "id": "7",
+      "name": "Thriller",
+      "author": "Michael Jackson",
+      "year": "1982",
+      "description": "Thriller is the sixth studio album by American singer Michael Jackson.",
+      "genre": "Pop",
+      "image": "thriller.jpg",
+      "price": "25,99"
+    },
+    {
+      "id": "8",
+      "name": "Thriller",
+      "author": "Michael Jackson",
+      "year": "1982",
+      "description": "Thriller is the sixth studio album by American singer Michael Jackson.",
+      "genre": "Boti",
+      "image": "thriller.jpg",
+      "price": "25,99"
+    },
+    {
+      "id": "9",
+      "name": "Thriller",
+      "author": "Michael Jackson",
+      "year": "1982",
+      "description": "Thriller is the sixth studio album by American singer Michael Jackson.",
+      "genre": "Jazz",
+      "image": "thriller.jpg",
+      "price": "25,99"
+    }
+    
+  ]
+  

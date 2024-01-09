@@ -1,20 +1,90 @@
 <template>
-    <v-container>
-      <v-form>
-       
-        <v-btn @click="submitOrder">Submit Order</v-btn>
-      </v-form>
-    </v-container>
-  </template>
-  
-  <script>
-  export default {
-    name: 'CheckoutForm',
-    methods: {
-      submitOrder() {
-        
+  <v-form ref="form" v-model="valid" lazy-validation>
+    <!-- Customer Information -->
+    <v-text-field
+      label="Full Name"
+      v-model="checkoutForm.fullName"
+      :rules="[rules.required]"
+      required
+    ></v-text-field>
+    <v-text-field
+      label="Email"
+      v-model="checkoutForm.email"
+      :rules="[rules.required, rules.email]"
+      required
+    ></v-text-field>
+
+    <!-- Shipping Address -->
+    <v-text-field
+      label="Address"
+      v-model="checkoutForm.address"
+      :rules="[rules.required]"
+      required
+    ></v-text-field>
+    <v-text-field
+      label="City"
+      v-model="checkoutForm.city"
+      :rules="[rules.required]"
+      required
+    ></v-text-field>
+    <v-text-field
+      label="Postal Code"
+      v-model="checkoutForm.postalCode"
+      :rules="[rules.required]"
+      required
+    ></v-text-field>
+    <v-text-field
+      label="Country"
+      v-model="checkoutForm.country"
+      :rules="[rules.required]"
+      required
+    ></v-text-field>
+    <!-- Display Total Price -->
+    <div class="text-h5 my-3">
+      Total to Pay: ${{ totalPrice.toFixed(2) }}
+    </div>
+    <!-- Submit Button -->
+    <v-btn color="primary"
+      class="mr-4"
+      @click="submitForm"
+      :disabled="!valid"
+    >
+      Submit
+    </v-btn>
+  </v-form>
+</template>
+
+<script>
+export default {
+  props: {
+    totalPrice: Number
+  },
+  data() {
+    return {
+      valid: false,
+      checkoutForm: {
+        fullName: '',
+        email: '',
+        address: '',
+        city: '',
+        postalCode: '',
+        country: ''
       },
-    },
-  };
-  </script>
-  
+      rules: {
+        required: value => !!value || 'Required.',
+        email: value => {
+          const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return pattern.test(value) || 'Invalid e-mail.';
+        }
+      }
+    };
+  },
+  methods: {
+    submitForm() {
+      if (this.$refs.form.validate()) {
+        this.$emit('submit', this.checkoutForm);
+      }
+    }
+  }
+};
+</script>

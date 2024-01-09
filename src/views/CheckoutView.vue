@@ -1,23 +1,41 @@
 <template>
-    <div>
-      
-      <v-container>
-        <CheckoutForm />
-      </v-container>
-    </div>
-  </template>
-  
-  <script>
-  import Navbar from '@/components/Navbar.vue';
-  import CheckoutForm from '@/components/CheckoutForm.vue';
-  
-  export default {
-    name: 'CheckoutView',
-    components: {
-      Navbar,
-      CheckoutForm,
-    },
-    
-  };
-  </script>
-  
+  <v-container>
+    <h1>Checkout</h1>
+    <CheckoutForm @submit="processCheckout" :totalPrice="cart.totalPrice" />
+    <ThankYouPopup v-model="showThankYou" @close="closeThankYou" />
+  </v-container>
+</template>
+
+<script>
+import { ref } from 'vue';
+import CheckoutForm from '@/components/CheckoutForm.vue';
+import ThankYouPopup from '@/components/ThankYouPopup.vue';
+import { useCartStore } from '@/stores/cart';
+
+export default {
+  components: {
+    CheckoutForm,
+    ThankYouPopup
+  },
+  setup() {
+    const cart = useCartStore();
+    const showThankYou = ref(false);
+
+    const processCheckout = (checkoutData) => {
+      console.log('Processing checkout:', checkoutData);
+
+      // Clear the cart after successful checkout
+      cart.clearCart();
+
+      // Show thank you message
+      showThankYou.value = true;
+    };
+
+    const closeThankYou = () => {
+      showThankYou.value = false;
+    };
+
+    return { cart, showThankYou, processCheckout, closeThankYou };
+  }
+};
+</script>
