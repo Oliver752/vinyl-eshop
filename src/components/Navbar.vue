@@ -17,15 +17,15 @@
 </template>
 
 <script>
-import { useCartStore } from '@/stores/cart'; // Make sure the path matches your project structure
+import { useCartStore } from '@/stores/cart'; 
 
 export default {
   name: 'Navbar',
   setup() {
-    // Using the cart store
+    
     const cart = useCartStore();
     
-    // Return the cart store to use in the template
+    
     return { cart };
   },
 };

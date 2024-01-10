@@ -8,7 +8,7 @@ export const useCartStore = defineStore('cart', {
     totalItems: (state) => state.items.reduce((total, item) => total + item.quantity, 0),
     totalPrice: (state) => {
       return state.items.reduce((total, item) => {
-        // Ensure that price and quantity are treated as numbers
+        
         const price = Number(item.price);
         const quantity = Number(item.quantity);
         return total + (price * quantity);
@@ -24,7 +24,7 @@ export const useCartStore = defineStore('cart', {
         this.items.push({ 
           ...product, 
           quantity: 1,
-          price: parseFloat(product.price) // Ensure price is a number
+          price: parseFloat(product.price) 
         });
       }
     },
@@ -37,7 +37,7 @@ export const useCartStore = defineStore('cart', {
     updateQuantity(productId, quantity) {
       const item = this.items.find(item => item.id === productId);
       if (item) {
-        item.quantity = Number(quantity); // Ensure quantity is a number
+        item.quantity = Number(quantity); 
       }
     },
     clearCart() {

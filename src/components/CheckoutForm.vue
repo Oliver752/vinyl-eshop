@@ -1,6 +1,6 @@
 <template>
   <v-form ref="form" v-model="valid" lazy-validation>
-    <!-- Customer Information -->
+    
     <v-text-field
       label="Full Name"
       v-model="checkoutForm.fullName"
@@ -14,7 +14,7 @@
       required
     ></v-text-field>
 
-    <!-- Shipping Address -->
+    
     <v-text-field
       label="Address"
       v-model="checkoutForm.address"
@@ -39,11 +39,11 @@
       :rules="[rules.required]"
       required
     ></v-text-field>
-    <!-- Display Total Price -->
+    
     <div class="text-h5 my-3">
       Total to Pay: ${{ totalPrice.toFixed(2) }}
     </div>
-    <!-- Submit Button -->
+    
     <v-btn color="primary"
       class="mr-4"
       @click="submitForm"

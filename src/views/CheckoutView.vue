@@ -24,10 +24,10 @@ export default {
     const processCheckout = (checkoutData) => {
       console.log('Processing checkout:', checkoutData);
 
-      // Clear the cart after successful checkout
+      
       cart.clearCart();
 
-      // Show thank you message
+      
       showThankYou.value = true;
     };
 

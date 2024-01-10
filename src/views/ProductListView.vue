@@ -2,7 +2,7 @@
   <div>
     <h1 class="x">All products:</h1>
     <v-container>
-      <!-- Genre Selection -->
+      
       <v-select
         v-model="selectedGenre"
         :items="genreOptions"
@@ -13,7 +13,7 @@
       ></v-select>
 
       <v-row>
-        <!-- Filtered list of products -->
+        
         <v-col
           cols="12"
           sm="4"
@@ -30,7 +30,7 @@
 
 <script>
 import ProductItem from '@/components/ProductItem.vue';
-import productsData from '@/assets/products.json'; // Import the JSON file
+import productsData from '@/assets/products.json'; 
 
 export default {
   name: 'ProductListView',
@@ -40,27 +40,27 @@ export default {
   data() {
     return {
       selectedGenre: '',
-      products: productsData, // The data from the JSON file
+      products: productsData, 
     };
   },
   computed: {
     genreOptions() {
-      // Unique list of genres with 'All' option at the beginning
+      
       const genres = new Set(productsData.map(p => p.genre));
       return ['All', ...genres];
     },
     filteredProducts() {
-      // If 'All' is selected, return all products
+      
       if (!this.selectedGenre || this.selectedGenre === 'All') {
         return this.products;
       }
-      // Return products that match the selected genre
+      
       return this.products.filter(p => p.genre === this.selectedGenre);
     }
   },
   methods: {
     filterByGenre() {
-      // The computed property 'filteredProducts' will reactively update the list
+      
     }
   }
 };

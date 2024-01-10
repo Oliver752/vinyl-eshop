@@ -13,7 +13,7 @@
       </v-card-actions>
     </v-card>
 
-    <!-- Dialog with product details -->
+    
     <v-dialog v-model="dialog" persistent max-width="1200px">
       <v-card>
         <v-img :src="`/img/${product.image}`" height="500px" />
@@ -43,7 +43,7 @@ export default {
   },
   data() {
     return {
-      dialog: false, // Controls whether the dialog is open
+      dialog: false,
     };
   },
   methods: {
