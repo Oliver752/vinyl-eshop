@@ -30,9 +30,7 @@ export default {
   methods: {
     processCheckout(checkoutData) {
       console.log('Processing checkout:', checkoutData);
-      // Clear the cart after successful checkout
       this.cartStore.clearCart();
-      // Show thank you message
       this.showThankYou = true;
     },
     closeThankYou() {

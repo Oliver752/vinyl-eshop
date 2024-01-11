@@ -7,7 +7,7 @@
       <v-btn text to="/products">Products</v-btn>
       <v-btn text to="/cart">
         Cart
-        <v-badge color="red" :content="totalItems.toString()" offset-x="-10">
+        <v-badge color="red" :content="totalItems" offset-x="-10">
           <v-icon>mdi-cart</v-icon>
         </v-badge>
       </v-btn>
