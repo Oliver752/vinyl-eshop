@@ -1,6 +1,5 @@
 <template>
   <v-form ref="form" v-model="valid" lazy-validation>
-    
     <v-text-field
       label="Full Name"
       v-model="checkoutForm.fullName"
@@ -10,11 +9,9 @@
     <v-text-field
       label="Email"
       v-model="checkoutForm.email"
-      :rules="[rules.required, rules.email]"
+      :rules="[rules.required]"
       required
     ></v-text-field>
-
-    
     <v-text-field
       label="Address"
       v-model="checkoutForm.address"
@@ -39,16 +36,12 @@
       :rules="[rules.required]"
       required
     ></v-text-field>
-    
+
     <div class="text-h5 my-3">
       Total to Pay: ${{ totalPrice.toFixed(2) }}
     </div>
-    
-    <v-btn color="primary"
-      class="mr-4"
-      @click="submitForm"
-      :disabled="!valid"
-    >
+
+    <v-btn color="primary" class="mr-4" @click="submitForm" :disabled="!valid">
       Submit
     </v-btn>
   </v-form>
@@ -71,11 +64,7 @@ export default {
         country: ''
       },
       rules: {
-        required: value => !!value || 'Required.',
-        email: value => {
-          const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-          return pattern.test(value) || 'Invalid e-mail.';
-        }
+        required: value => !!value || 'Required.'
       }
     };
   },
