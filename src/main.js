@@ -1,5 +1,4 @@
 import '@mdi/font/css/materialdesignicons.css';
-
 import './assets/main.css'
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -21,10 +20,7 @@ const vuetify = createVuetify({
     })
 
 app.use(vuetify)
-
-
 app.use(pinia)
-
 app.use(router)
 
 app.mount('#app')

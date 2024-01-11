@@ -4,22 +4,31 @@ export const useCartStore = defineStore('cart', {
   state: () => ({
     items: []
   }),
+
   getters: {
-    totalItems: (state) => state.items.reduce((total, item) => total + item.quantity, 0),
-    totalPrice: (state) => {
-      return state.items.reduce((total, item) => {
-        
-        const price = Number(item.price);
-        const quantity = Number(item.quantity);
-        return total + (price * quantity);
-      }, 0);
+    totalItems(state) {
+      let total = 0;
+      for (const item of state.items) {
+        total += item.quantity;
+      }
+      return total;
+    },
+
+    totalPrice(state) {
+      let total = 0;
+      for (const item of state.items) {
+        total += item.price * item.quantity;
+      }
+      return total;
     }
   },
+
   actions: {
     addToCart(product) {
-      const existingItem = this.items.find(item => item.id === product.id);
-      if (existingItem) {
-        existingItem.quantity++;
+      const index = this.findIndexInCart(this.items, product.id);
+
+      if (index !== -1) {
+        this.items[index].quantity++;
       } else {
         this.items.push({ 
           ...product, 
@@ -28,20 +37,32 @@ export const useCartStore = defineStore('cart', {
         });
       }
     },
+
     removeFromCart(productId) {
-      const index = this.items.findIndex(item => item.id === productId);
+      const index = this.findIndexInCart(this.items, productId);
       if (index !== -1) {
         this.items.splice(index, 1);
       }
     },
+
     updateQuantity(productId, quantity) {
-      const item = this.items.find(item => item.id === productId);
-      if (item) {
-        item.quantity = Number(quantity); 
+      const index = this.findIndexInCart(this.items, productId);
+      if (index !== -1) {
+        this.items[index].quantity = Number(quantity);
       }
     },
+
     clearCart() {
       this.items = [];
+    },
+
+    findIndexInCart(items, id) {
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].id === id) {
+          return i;
+        }
+      }
+      return -1;
     }
   }
 });

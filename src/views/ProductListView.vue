@@ -2,7 +2,7 @@
   <div>
     <h1 class="x">All products:</h1>
     <v-container>
-      <v-select v-model="selectedGenre" :items="genreOptions" label="Select Genre" @change="filterByGenre" class="mb-4" clearable></v-select>
+      <v-select v-model="selectedGenre" :items="genreOptions" label="Select Genre" class="mb-4" clearable></v-select>
       <v-row>
         <v-col cols="12" sm="4" md="3" v-for="product in filteredProducts" :key="product.id">
           <ProductItem :product="product" />
@@ -40,11 +40,6 @@ export default {
       }
       
       return this.products.filter(p => p.genre === this.selectedGenre);
-    }
-  },
-  methods: {
-    filterByGenre() {
-      
     }
   }
 };

@@ -1,11 +1,11 @@
 <template>
   <v-form ref="form" v-model="valid" >
-    <v-text-field label="Full Name"   v-model="checkoutForm.fullName"   :rules="[rules.required]" required></v-text-field>
-    <v-text-field label="Email"       v-model="checkoutForm.email"      :rules="[rules.required]" required></v-text-field>
-    <v-text-field label="Address"     v-model="checkoutForm.address"    :rules="[rules.required]" required></v-text-field>
-    <v-text-field label="City"        v-model="checkoutForm.city"       :rules="[rules.required]" required></v-text-field>
-    <v-text-field label="Postal Code" v-model="checkoutForm.postalCode" :rules="[rules.required]" required></v-text-field>
-    <v-text-field label="Country"     v-model="checkoutForm.country"    :rules="[rules.required]" required></v-text-field>
+    <v-text-field label="Full Name"   v-model="checkoutForm.fullName"   :rules="[rules.required]" ></v-text-field>
+    <v-text-field label="Email"       v-model="checkoutForm.email"      :rules="[rules.required]" ></v-text-field>
+    <v-text-field label="Address"     v-model="checkoutForm.address"    :rules="[rules.required]" ></v-text-field>
+    <v-text-field label="City"        v-model="checkoutForm.city"       :rules="[rules.required]" ></v-text-field>
+    <v-text-field label="Postal Code" v-model="checkoutForm.postalCode" :rules="[rules.required]" ></v-text-field>
+    <v-text-field label="Country"     v-model="checkoutForm.country"    :rules="[rules.required]" ></v-text-field>
     <div class="text-h5 my-3">
       Total to Pay: {{ totalPrice.toFixed(2) }}€
     </div>
@@ -31,7 +31,7 @@ export default {
         country: ''
       },
       rules: {
-        required: value => !!value || 'Required.'
+        required: value => !!value || 'Required field'
       }
     };
   },
